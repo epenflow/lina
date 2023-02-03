@@ -98,6 +98,25 @@
       span:nth-child(2) {
         transform: rotate(-45deg);
       }
+      .lina {
+        width: 320px;
+      }
+      .image-container {
+        justify-items: center;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        display: none;
+        animation: s;
+      }
+      @keyframes linas {
+        from {
+          scale: 0;
+        }
+        to {
+          scale: 1;
+        }
+      }
     </style>
   </head>
   <body>
@@ -121,8 +140,11 @@
       </div>
       <h2>Hatinya siapa yang bergerak? Coba diklik dulu</h2>
     </div>
+    <div class="image-container">
+      <img src="IMG-20230119-WA0008.jpg" class="lina" />
+      <h1>I Love You 3000</h1>
+    </div>
   </body>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
     let modal = document.querySelector(".modal");
     let heart = document.querySelector(".img-heart");
@@ -148,17 +170,19 @@
     let message = "";
     btn.forEach(
       addEventListener("click", (el) => {
-        message = el.target.value;
-        Email.send({
-          SecureToken: "48d2a422-649f-429c-ba92-f52307ca903f",
-          Host: "smtp.elasticemail.com",
-          Username: "oxygen2exchange@gmail.com",
-          Password: "18869F4B96F2A66722FB4D4E76E52E46E9B9",
-          To: "inyomanbudayasa86@gmail.com",
-          From: "oxygen2exchange@gmail.com",
-          Subject: "Balasan Dari Web!!!",
-          Body: message,
-        }).then((message) => alert(message));
+        if (el.target.value == "ya") {
+          alert("I LOVE YOU");
+          let doc = document.querySelector(".container").remove();
+          let lina = document.querySelector(".image-container");
+
+          lina.style.display = "flex";
+          lina.style.animation = "linas 15s";
+          console.log(lina);
+        } else if (el.target.value == "tidak") {
+          for (var i = 0; i < Infinity; i++) {
+            alert("iya udah 🤪🤪🤪🤪🤪🤪🤪🤪");
+          }
+        }
       })
     );
   </script>
