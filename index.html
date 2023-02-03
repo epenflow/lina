@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/segoe-script");
+      body {
+        background-color: #d61416;
+        overflow-x: hidden;
+        width: 360px;
+        font-family: "Segoe Script", sans-serif;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .img-heart {
+        width: 350px;
+        animation: heart-rate 1s infinite;
+        cursor: pointer;
+      }
+      .modal {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.156);
+        width: 300px;
+        height: 350px;
+        border-radius: 5%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        visibility: hidden;
+        animation: s;
+      }
+      h1 {
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 43px;
+      }
+      @keyframes modals {
+        from {
+          scale: 0;
+        }
+        to {
+          scale: 1;
+        }
+      }
+      @keyframes modals-out {
+        from {
+          scale: 1;
+        }
+        to {
+          scale: 0;
+        }
+      }
+      @keyframes heart-rate {
+        from {
+          scale: 1;
+        }
+        to {
+          scale: 1.1;
+        }
+      }
+      .btn {
+        width: 130px;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+      .btn:hover,
+      .btn:active {
+        background-color: #d61416;
+        color: white;
+      }
+      .line-container {
+        position: relative;
+        left: 120px;
+        top: -95px;
+        cursor: pointer;
+      }
+      .line {
+        height: 3px;
+        width: 20px;
+        background-color: black;
+        position: absolute;
+        border-radius: 10px;
+      }
+      span:nth-child(1) {
+        transform: rotate(45deg);
+      }
+      span:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="img-container">
+        <img src="Red-Heart-Love-PNG-Picture.png" class="img-heart" />
+      </div>
+      <div class="modal">
+        <div class="line-container">
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+        <h1>
+          Hi lina, mau ga jadi pacar aku? <br />
+          gua sayang sama lo
+        </h1>
+        <div>
+          <button class="btn" value="ya">Ya</button>
+          <button class="btn" value="tidak">Tidak</button>
+        </div>
+      </div>
+      <h2>Hatinya siapa yang bergerak? Coba diklik dulu</h2>
+    </div>
+  </body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    let modal = document.querySelector(".modal");
+    let heart = document.querySelector(".img-heart");
+    let closeButton = document.querySelector(".line-container");
+    let tagName = document.querySelector("h2");
+    let modalActive = true;
+    let btn = document.querySelector(".btn");
+    console.log(tagName);
+    heart.addEventListener("click", () => {
+      modal.style.visibility = modalActive ? ((modalActive = false), "visible") : ((modalActive = true), "hidden");
+      modal.style.animation = "modals 10s";
+      tagName.innerHTML = "Ehhh kok di klik sih, Awas meledak!";
+    });
+    closeButton.addEventListener("click", () => {
+      modal.style.animation = "modals-out 10s";
+      const modalOut = () => {
+        modal.style.visibility = modalActive ? ((modalActive = false), "visible") : ((modalActive = true), "hidden");
+      };
+
+      const timeOut = setTimeout(modalOut, 10000);
+      tagName.innerHTML = "😵😵😵😵😵😵😵";
+    });
+    let message = "";
+    btn.forEach(
+      addEventListener("click", (el) => {
+        message = el.target.value;
+        Email.send({
+          SecureToken: "48d2a422-649f-429c-ba92-f52307ca903f",
+          Host: "smtp.elasticemail.com",
+          Username: "oxygen2exchange@gmail.com",
+          Password: "18869F4B96F2A66722FB4D4E76E52E46E9B9",
+          To: "inyomanbudayasa86@gmail.com",
+          From: "oxygen2exchange@gmail.com",
+          Subject: "Balasan Dari Web!!!",
+          Body: message,
+        }).then((message) => alert(message));
+      })
+    );
+  </script>
+</html>
