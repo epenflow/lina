@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      @import url("https://fonts.cdnfonts.com/css/segoe-script");
+      @font-face {
+        font-family: "Segoe Script";
+        src: url(segoesc.ttf);
+      }
       body {
         background-color: #d61416;
         overflow-x: hidden;
@@ -117,32 +120,42 @@
           scale: 1;
         }
       }
+      .isLove {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        position: fixed;
+      }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="img-container">
-        <img src="Red-Heart-Love-PNG-Picture.png" class="img-heart" />
-      </div>
-      <div class="modal">
-        <div class="line-container">
-          <span class="line"></span>
-          <span class="line"></span>
+    <div class="isLove">
+      <div class="container">
+        <div class="img-container">
+          <img src="Red-Heart-Love-PNG-Picture.png" class="img-heart" />
         </div>
-        <h1>
-          Hi lina, mau ga jadi pacar aku? <br />
-          gua sayang sama lo
-        </h1>
-        <div>
-          <button class="btn" value="ya">Ya</button>
-          <button class="btn" value="tidak">Tidak</button>
+        <div class="modal">
+          <div class="line-container">
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+          <h1>
+            Hi lina, mau ga jadi pacar aku? <br />
+            gua sayang sama lo
+          </h1>
+          <div>
+            <button class="btn" value="ya">Ya</button>
+            <button class="btn" value="tidak">Tidak</button>
+          </div>
         </div>
+        <h2>Hatinya siapa yang berdetak? Coba diklik dulu</h2>
       </div>
-      <h2>Hatinya siapa yang berdetak? Coba diklik dulu</h2>
-    </div>
-    <div class="image-container">
-      <img src="IMG-20230119-WA0008.jpg" class="lina" />
-      <h1>I Love You 3000</h1>
+      <div class="image-container">
+        <img src="IMG-20230119-WA0008.jpg" class="lina" />
+        <h1>I Love You 3000</h1>
+      </div>
     </div>
   </body>
   <script>
